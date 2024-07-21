@@ -1,7 +1,7 @@
 import schedule, time
 import email_sms_module as esm
 
-# Schedule to send email every day at 9am CST. 
+# Schedule to send email every day at 12am CST. 
 schedule.every().day.at('24:00').do(esm.send_text_message)
 
 
