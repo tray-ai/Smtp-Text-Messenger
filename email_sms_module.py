@@ -28,9 +28,6 @@ def send_text_message():
    except smtplib.SMTPException:
       print('No suitable authentication method was found.')
 
-   
-
-
    # Compose a message.
    msg = f'Hello World!'
 
@@ -46,6 +43,5 @@ def send_text_message():
 
    # Close the connection.
    server.quit()
-
 
    print('Message Sent Succesfully!')
