@@ -18,16 +18,31 @@ def send_text_message():
    email = os.getenv('EMAIL')
    password = os.getenv('PASSWORD')
 
+   try:
+      # Attempt to login to Gmail.
+      server.login(email, password)
+   except smtplib.SMTPHeloError:
+      print('The server did not respond properly.')
+   except smtplib.SMTPNotSupportedError:
+      print('The AUTH command is not supported by the server.')
+   except smtplib.SMTPException:
+      print('No suitable authentication method was found.')
 
-   # Login to Gmail
-   server.login(email, password)
+   
 
 
    # Compose a message.
    msg = f'Hello World!'
 
-   # Send the email/text message.
-   server.sendmail(email, os.getenv('RECIPENT_EMAIL'), msg)
+   try:
+      # Attempt to send the email/text message.
+      server.sendmail(email, os.getenv('RECIPENT_EMAIL'), msg)
+   except smtplib.SMTPHeloError:
+      print('The server did not respond properly.')
+   except smtplib.SMTPRecipientsRefused:
+      print('All recipents were refused. Nobody got the mail.')
+   except smtplib.SMTPDataError:
+      print('The server replied with an unexpected error code.')
 
    # Close the connection.
    server.quit()
