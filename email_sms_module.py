@@ -1,4 +1,4 @@
-import smtplib, os
+import smtplib, os, time
 from dotenv import load_dotenv
 
 # Load env variables into file. 
@@ -44,4 +44,4 @@ def send_text_message():
    # Close the connection.
    server.quit()
 
-   print('Message Sent Succesfully!')
+   print(f'Message Sent Succesfully! - {time.strftime('%H:%M:%S')}.')
