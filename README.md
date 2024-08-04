@@ -11,6 +11,8 @@ This script schedules the sending of an email every day at 12 AM CST using the s
 
 email_sms_module.py:
 
-This module contains the functionality to send an email via the SMTP protocol using environment variables for configuration. It loads environment variables, creates a connection to the Gmail SMTP server, logs in, composes a message, and sends it.  In the end, the program sends a notification to my Pushover application on my phone informing me that my message/email has been sent.
+This module contains the functionality to send an email via the SMTP protocol using environment variables for configuration. It loads environment variables, creates a connection to the Gmail SMTP server, logs in, composes a message, and sends it.  
+
+In the end, the program sends a notification to my Pushover application on my phone informing me that my message/email has been sent.
 
 
