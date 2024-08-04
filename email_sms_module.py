@@ -41,7 +41,10 @@ def send_text_message():
    except smtplib.SMTPDataError:
       print('The server replied with an unexpected error code.')
 
+   # Send a notification to pushover that the message was sent.
+   notification = (f'Message Sent Succesfully! - {time.strftime('%H:%M:%S')}.')
+   server.sendmail(email, os.getenv('PUSHOVER_EMAIL'), notification)
+
    # Close the connection.
    server.quit()
 
-   print(f'Message Sent Succesfully! - {time.strftime('%H:%M:%S')}.')
